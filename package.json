@@ -5,8 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "gulp test",
-    "gogogo": "gulp copy-webapp",
-    "wingo": "gulp & node app.js"
+    "gogogo": "gulp & node app.js"
   },
   "repository": {
     "type": "git",
