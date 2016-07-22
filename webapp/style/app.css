@@ -6,7 +6,8 @@
 }
 
 .topo {
-  height: 120px;
+  height       : 120px;
+  border-bottom: 1px solid #666;
 }
 
 .topo-logo {
@@ -51,8 +52,13 @@
   list-style    : none;
   border-bottom : 1px white solid;
   text-transform: uppercase;
-  width         : 20rem;
+  width         : 100%;
   margin        : 0;
+}
+
+.menu a {
+  color          : white;
+  text-decoration: none;
 }
 
 .menu li {
@@ -134,6 +140,35 @@
   -o-transition     : all 300ms linear;
   -ms-transition    : all 300ms linear;
   transition        : all 300ms linear;
+}
+
+.lista-produtos {
+  padding-top: 5rem;
+}
+
+.lista-produtos .menu ul {
+  background-color: #333;
+  color           : white;
+}
+
+.listagem-produtos .container {
+  margin      : 0;
+  padding     : 0;
+  margin-left : auto;
+  margin-right: auto;
+}
+
+.listagem-produtos img {
+  width: 100%;
+}
+
+.produto-listagem {
+  padding-bottom: 3rem;
+}
+
+.produto-valor {
+  text-align: center;
+  font-style: italic;
 }
 
 .rodape {
