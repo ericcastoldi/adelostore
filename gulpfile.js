@@ -1,25 +1,25 @@
 var gulp = require('gulp'),
-    nodemon = require('gulp-nodemon'),
-    eslint = require('gulp-eslint'),
-    mocha = require('gulp-mocha'),
-    del = require('del'),
-    source = require('vinyl-source-stream'),
-    reactify = require('reactify'),
-    browserify = require('browserify'),
-    runSequence = require('run-sequence'),
-    gutil = require('gulp-util'),
-    buffer = require('vinyl-buffer'),
-    watchify = require('watchify'),
-    babelify = require('babelify'),
-    envify = require('envify'),
-    lrload = require('livereactload');
+  del = require('del');
+// nodemon = require('gulp-nodemon'),
+// eslint = require('gulp-eslint'),
+// mocha = require('gulp-mocha'),
+// source = require('vinyl-source-stream'),
+// reactify = require('reactify'),
+// browserify = require('browserify'),
+// runSequence = require('run-sequence'),
+// gutil = require('gulp-util'),
+// buffer = require('vinyl-buffer'),
+// watchify = require('watchify'),
+// babelify = require('babelify'),
+// envify = require('envify'),
+// lrload = require('livereactload');
 
 // Transform all required files with Babel
-require('babel-core/register');
+//require('babel-core/register');
 
 gulp.task('default', ['copy-webapp']);
 
-gulp.task('copy-webapp', ['clean'], function(){
+gulp.task('copy-webapp', ['clean'], function () {
   return gulp.src('webapp/**')
     .pipe(gulp.dest('public'));
 });
