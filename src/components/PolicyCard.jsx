@@ -32,9 +32,9 @@ var PolicyCard = React.createClass({
   },
 
   renderPolicies: function(){
-    return this.props.policies.map(function(policy){
+    return this.props.policies.map(function(policy, index){
       return (
-        <li><a href={policy.route}>{policy.title}</a></li>
+        <li key={index}><a href={policy.route}>{policy.name}</a></li>
       );
     });
   },

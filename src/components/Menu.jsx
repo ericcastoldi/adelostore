@@ -65,14 +65,14 @@ var Menu = React.createClass({
 
     var items = this.props.items;
 
-    var renderedItems = items.map(function (item) {
+    var renderedItems = items.map(function (item, index) {
 
       var cssClass = item.active
         ? 'active'
         : '';
 
       return (
-        <a href={item.route}>
+        <a href={item.route} key={index}>
           <li className={cssClass}>{item.text}</li>
         </a>
       );

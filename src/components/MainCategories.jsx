@@ -54,10 +54,11 @@ var MainCategories = React.createClass({
       splittedCategories.push(categories.splice(0, 2));
     }
 
-    var renderedCategories = splittedCategories.map(function(doubleTrouble) {
-      var categoryRowContent = doubleTrouble.map(function(category) {
+    var renderedCategories = splittedCategories.map(function(doubleTrouble, index) {
+      
+      var categoryRowContent = doubleTrouble.map(function(category, rowIndex) {
         return (
-          <div className="six columns">
+          <div key={rowIndex} className="six columns">
             <CategoryCard
               picture={category.picture}
               caption={category.caption}
@@ -67,7 +68,7 @@ var MainCategories = React.createClass({
         );
       });
 
-      return (<div className="row">{categoryRowContent}</div>);
+      return (<div key={index} className="row">{categoryRowContent}</div>);
     });
 
     return renderedCategories;
