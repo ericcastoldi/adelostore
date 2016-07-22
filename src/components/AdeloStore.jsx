@@ -5,9 +5,6 @@ var MainCategories = require('./MainCategories.jsx');
 var Footer = require('./Footer.jsx');
 
 var AdeloStore = React.createClass({
-  propTypes: {
-    children: React.PropTypes.node.isRequired
-  },
   render: function() {
       return (
           <div className="adelo-store">
