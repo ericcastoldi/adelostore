@@ -5,7 +5,7 @@ var PolicyCard = React.createClass({
     icon: React.PropTypes.string.isRequired,
     policies: React.PropTypes.arrayOf(
      React.PropTypes.shape({
-        policy: React.PropTypes.string.isRequired,
+        name: React.PropTypes.string.isRequired,
         route: React.PropTypes.string.isRequired
       })
     ).isRequired
@@ -16,15 +16,15 @@ var PolicyCard = React.createClass({
       icon: 'question',
       policies: [
         {
-          title: 'Entregas',
+          name: 'Entregas',
           route: '/politicas/entregas'
         },
         {
-          title: 'Formas de pagamento',
+          name: 'Formas de pagamento',
           route: '/politicas/pagamentos'
         },
         {
-          title: 'Política de trocas',
+          name: 'Política de trocas',
           route: '/politicas/trocas'
         }
       ]

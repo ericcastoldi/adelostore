@@ -8,7 +8,7 @@ var Footer = React.createClass({
       icon: React.PropTypes.string.isRequired,
       policies: React.PropTypes.arrayOf(
        React.PropTypes.shape({
-          policy: React.PropTypes.string.isRequired,
+          name: React.PropTypes.string.isRequired,
           route: React.PropTypes.string.isRequired
         })
       ).isRequired
@@ -17,7 +17,7 @@ var Footer = React.createClass({
       icon: React.PropTypes.string.isRequired,
       policies: React.PropTypes.arrayOf(
        React.PropTypes.shape({
-          policy: React.PropTypes.string.isRequired,
+          name: React.PropTypes.string.isRequired,
           route: React.PropTypes.string.isRequired
         })
       ).isRequired
@@ -30,15 +30,15 @@ var Footer = React.createClass({
         icon: 'question',
         policies: [
           {
-            title: 'Entregas',
+            name: 'Entregas',
             route: '/politicas/entregas'
           },
           {
-            title: 'Formas de pagamento',
+            name: 'Formas de pagamento',
             route: '/politicas/pagamentos'
           },
           {
-            title: 'Política de trocas',
+            name: 'Política de trocas',
             route: '/politicas/trocas'
           }
         ]
@@ -47,11 +47,11 @@ var Footer = React.createClass({
         icon: 'comment-o',
         policies: [
           {
-            title: 'Dúvidas',
+            name: 'Dúvidas',
             route: '/politicas/duvidas'
           },
           {
-            title: 'Contato',
+            name: 'Contato',
             route: '/politicas/contato'
           }
         ]
