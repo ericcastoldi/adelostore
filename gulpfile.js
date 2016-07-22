@@ -1,21 +1,23 @@
 var gulp = require('gulp'),
-  del = require('del');
-// nodemon = require('gulp-nodemon'),
+  del = require('del'),
+  gutil = require('gulp-util'),
+  buffer = require('vinyl-buffer'),
+  source = require('vinyl-source-stream'),
+  runSequence = require('run-sequence'),
+  browserify = require('browserify'),
+  watchify = require('watchify'),
+  babelify = require('babelify'),
+  envify = require('envify'),
+  lrload = require('livereactload'),
+  nodemon = require('gulp-nodemon');
 // eslint = require('gulp-eslint'),
 // mocha = require('gulp-mocha'),
-// source = require('vinyl-source-stream'),
 // reactify = require('reactify'),
-// browserify = require('browserify'),
-// runSequence = require('run-sequence'),
-// gutil = require('gulp-util'),
-// buffer = require('vinyl-buffer'),
-// watchify = require('watchify'),
-// babelify = require('babelify'),
-// envify = require('envify'),
-// lrload = require('livereactload');
+
+
 
 // Transform all required files with Babel
-//require('babel-core/register');
+require('babel-core/register');
 
 gulp.task('default', ['copy-webapp']);
 
@@ -26,6 +28,73 @@ gulp.task('copy-webapp', ['clean'], function () {
 
 gulp.task('clean', function () {
   return del(['coverage', 'public']);
+});
+
+// Hot reloading in development
+var isProd = process.env.NODE_ENV === 'production';
+
+function createBundler(useWatchify) {
+  return browserify({
+    entries: ['src/components/App.jsx'],
+    transform: [babelify, envify],
+    plugin: isProd || !useWatchify ? [] : [lrload], // no additional configuration is needed
+    debug: !isProd,
+    fullPaths: !isProd // for watchify
+  });
+}
+
+// Default task: clean output directory, deploy and run app watching for changes
+gulp.task('default', ['deploy-app', 'watch:server', 'watch:js']);
+
+gulp.task('deploy-app', ['clean'], function (done) {
+  runSequence('copy-webapp', 'bundle:js', done);
+});
+
+gulp.task('watch:server', function () {
+  nodemon({
+      script: 'app.js',
+      ext: 'js',
+      ignore: ['gulpfile.js', 'application.js', 'node_modules/*']
+    })
+    .on('change', function () {})
+    .on('restart', function () {
+      console.log('Server restarted...');
+    });
+});
+
+gulp.task('watch:js', function () {
+  // start JS file watching and rebundling with watchify
+  var bundler = createBundler(false);
+  var watcher = watchify(bundler);
+
+  function rebundle() {
+    gutil.log('Update JavaScript bundle');
+    watcher
+      .bundle()
+      .on('error', gutil.log)
+      .pipe(source('application.js'))
+      .pipe(buffer())
+      .pipe(gulp.dest('public'));
+  }
+
+  rebundle();
+
+  return watcher
+    .on('error', gutil.log)
+    .on('update', rebundle);
+});
+
+gulp.task('copy-webapp', function () {
+  return gulp.src('webapp/**')
+    .pipe(gulp.dest('public'));
+});
+
+gulp.task('bundle:js', function () {
+  var bundler = createBundler(false);
+  bundler
+    .bundle()
+    .pipe(source('application.js'))
+    .pipe(gulp.dest('public'));
 });
 
 // Files to process
