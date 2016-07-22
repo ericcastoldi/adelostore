@@ -36,7 +36,7 @@ var MainCategories = React.createClass({
           route: '/categorias/outros'
         },
         {
-          picture: 'img/quadro-categorias-promocao.jpg',
+          picture: 'img/quadro-categorias-promocao.png',
           caption: 'Quadros em promoção',
           title: 'Promoções',
           route: '/categorias/promocoes'
