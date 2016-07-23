@@ -1,3 +1,9 @@
+a,
+a:hover {
+  text-decoration: none;
+  color          : inherit;
+}
+
 .titulo-adelo {
   letter-spacing: -0.05em;
   font-size     : 56px;
@@ -70,7 +76,7 @@
   padding-bottom: 1.5rem;
 
 }
-.menu li.active {
+.menu a.active li {
   background-color: rgba(255,225,0,0.5);
   color           : rgb(255, 238, 105);
 }
@@ -135,6 +141,7 @@
 .promocao-comprar:hover {
   background-color  : white;
   color             : #dec328;
+  text-shadow       : 0.1rem 0.1rem rgb(49, 47, 41);
   -webkit-transition: all 300ms linear;
   -moz-transition   : all 300ms linear;
   -o-transition     : all 300ms linear;
