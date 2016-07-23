@@ -1,65 +1,19 @@
 var React = require('react');
-var ProductListItem = require('./ProductListItem.jsx');
+var ProductCard = require('./ProductCard.jsx');
 
 var ProductList = React.createClass({
 
   propTypes: {
     products: React
       .PropTypes
-      .arrayOf(React.PropTypes.shape({picture: React.PropTypes.string.isRequired, caption: React.PropTypes.string, route: React.PropTypes.string.isRequired, price: React.PropTypes.number.isRequired}))
-  },
-
-  getDefaultProps: function () {
-    return {
-      products: [
-        {
-          picture: 'img/quadro-exemplo.png',
-          caption: 'Quadro de exemplo à venda',
-          route: '/produtos/123',
-          price: 10
-        }, {
-          picture: 'img/quadro-exemplo.png',
-          caption: 'Quadro de exemplo à venda',
-          route: '/produtos/123',
-          price: 10
-        }, {
-          picture: 'img/quadro-exemplo.png',
-          caption: 'Quadro de exemplo à venda',
-          route: '/produtos/123',
-          price: 10
-        }, {
-          picture: 'img/quadro-exemplo.png',
-          caption: 'Quadro de exemplo à venda',
-          route: '/produtos/123',
-          price: 10
-        }, {
-          picture: 'img/quadro-exemplo.png',
-          caption: 'Quadro de exemplo à venda',
-          route: '/produtos/123',
-          price: 10
-        }, {
-          picture: 'img/quadro-exemplo.png',
-          caption: 'Quadro de exemplo à venda',
-          route: '/produtos/123',
-          price: 10
-        }, {
-          picture: 'img/quadro-exemplo.png',
-          caption: 'Quadro de exemplo à venda',
-          route: '/produtos/123',
-          price: 10
-        }, {
-          picture: 'img/quadro-exemplo.png',
-          caption: 'Quadro de exemplo à venda',
-          route: '/produtos/123',
-          price: 10
-        }, {
-          picture: 'img/quadro-exemplo.png',
-          caption: 'Quadro de exemplo à venda',
-          route: '/produtos/123',
-          price: 10
-        }
-      ]
-    };
+      .arrayOf(
+        React.PropTypes.shape({
+          picture: React.PropTypes.string.isRequired,
+          caption: React.PropTypes.string,
+          route: React.PropTypes.string.isRequired,
+          price: React.PropTypes.number.isRequired
+        })
+      )
   },
 
   render: function () {
@@ -88,7 +42,7 @@ var ProductList = React.createClass({
       var productRowContent = rowProducts.map(function (product, rowIndex) {
         return (
           <div key={rowIndex} className="four columns">
-            <ProductListItem product={product}/>
+            <ProductCard product={product}/>
           </div>
         );
       });

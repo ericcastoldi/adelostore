@@ -1,4 +1,5 @@
 var React = require('react');
+var Link = require('react-router').Link;
 
 var FeaturedSale = React.createClass({
 
@@ -36,9 +37,9 @@ var FeaturedSale = React.createClass({
             {this.props.description}
           </span>
           <span className="promocao-comprar">
-            <a href={this.props.detailsRoute}>
+            <Link to={this.props.detailsRoute}>
               {this.props.detailsTitle}
-            </a>
+            </Link>
           </span>
         </div>
       </div>

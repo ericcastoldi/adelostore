@@ -5,13 +5,10 @@ var bodyParser = require('body-parser');
 var app = express();
 
 app.set('port', (process.env.PORT || 3000));
-
-app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules')));
 
-app.get('*', function (request, response) {
-  response.sendFile(path.resolve(__dirname, 'public', 'index.html'))
-});
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -24,6 +21,12 @@ app.use(function (req, res, next) {
 
   next();
 });
+
+app.get('*', function (request, response) {
+  var indexHtml = path.resolve(__dirname, 'public', 'index.html');
+  response.sendFile(indexHtml);
+});
+
 
 // app.get('/api/setlist', setlist.all);
 // app.post('/api/setlist', setlist.update);

@@ -1,6 +1,7 @@
 var React = require('react');
+var Link = require('react-router').Link;
 
-var ProductListItem = React.createClass({
+var ProductCard = React.createClass({
 
   propTypes: {
     product: React
@@ -24,17 +25,17 @@ var ProductListItem = React.createClass({
     var product = this.props.product;
     return (
       <div className="produto-listagem">
-        <a href={product.route}>
+        <Link to={product.route}>
           <div className="produto-imagem">
             <img src={product.picture} alt={product.caption}/>
           </div>
           <div className="produto-valor">
             R$ {product.price}
           </div>
-        </a>
+        </Link>
       </div>
     );
   }
 });
 
-module.exports = ProductListItem;
+module.exports = ProductCard;

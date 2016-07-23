@@ -19,8 +19,6 @@ var gulp = require('gulp'),
 // Transform all required files with Babel
 require('babel-core/register');
 
-gulp.task('default', ['copy-webapp']);
-
 gulp.task('copy-webapp', ['clean'], function () {
   return gulp.src('webapp/**')
     .pipe(gulp.dest('public'));
@@ -44,13 +42,13 @@ function createBundler(useWatchify) {
 }
 
 // Default task: clean output directory, deploy and run app watching for changes
-gulp.task('default', ['deploy-app', 'watch:server', 'watch:js']);
+gulp.task('default', ['watch:server', 'watch:js']);
 
 gulp.task('deploy-app', ['clean'], function (done) {
   runSequence('copy-webapp', 'bundle:js', done);
 });
 
-gulp.task('watch:server', function () {
+gulp.task('watch:server', ['deploy-app'], function () {
   nodemon({
       script: 'app.js',
       ext: 'js',

@@ -8,8 +8,7 @@ var Menu = React.createClass({
     items: React.PropTypes.arrayOf(
       React.PropTypes.shape({
         text: React.PropTypes.string.isRequired,
-        route: React.PropTypes.string,
-        active: React.PropTypes.bool
+        route: React.PropTypes.string
       })
     ).isRequired
   },

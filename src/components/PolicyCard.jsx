@@ -1,4 +1,5 @@
 var React = require('react');
+var Link = require('react-router').Link;
 
 var PolicyCard = React.createClass({
   propTypes: {
@@ -34,7 +35,9 @@ var PolicyCard = React.createClass({
   renderPolicies: function(){
     return this.props.policies.map(function(policy, index){
       return (
-        <li key={index}><a href={policy.route}>{policy.name}</a></li>
+        <li key={index}>
+          <Link to={policy.route}>{policy.name}</Link>
+        </li>
       );
     });
   },

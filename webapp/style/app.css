@@ -76,7 +76,7 @@ a:hover {
   padding-bottom: 1.5rem;
 
 }
-.menu li.active {
+.menu a.active li {
   background-color: rgba(255,225,0,0.5);
   color           : rgb(255, 238, 105);
 }

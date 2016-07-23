@@ -1,4 +1,5 @@
 var React = require('react');
+var Link = require('react-router').Link;
 
 var CategoryCard = React.createClass({
 
@@ -21,14 +22,14 @@ var CategoryCard = React.createClass({
   render: function () {
     return (
       <div className="categoria">
-        <a href={this.props.route}>
+        <Link to={this.props.route} >
           <div className="imagem-categoria">
             <img src={this.props.picture} alt={this.props.caption} />
           </div>
           <div className="nome-categoria">
             {this.props.title}
           </div>
-        </a>
+        </Link>
       </div>
     );
   }
