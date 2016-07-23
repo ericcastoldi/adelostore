@@ -1,4 +1,6 @@
 var React = require('react');
+var ReactRouter = require('react-router');
+var Link = ReactRouter.Link;
 
 var Menu = React.createClass({
 
@@ -17,33 +19,27 @@ var Menu = React.createClass({
         items: [
           {
             text: 'Home',
-            route: '/',
-            active: true
+            route: '/'
           },
           {
             text: 'Música',
-            route: '/categorias/musica',
-            active: false
+            route: '/categorias/musica'
           },
           {
             text: 'Cinema',
-            route: '/categorias/cinema',
-            active: false
+            route: '/categorias/cinema'
           },
           {
             text: 'Outros',
-            route: '/categorias/outros',
-            active: false
+            route: '/categorias/outros'
           },
           {
             text: 'Promoções',
-            route: '/categorias/promocoes',
-            active: false
+            route: '/categorias/promocoes'
           },
           {
             text: 'Nossa caminhada',
-            route: '/sobre',
-            active: false
+            route: '/sobre'
           }
         ]
       };
@@ -67,14 +63,10 @@ var Menu = React.createClass({
 
     var renderedItems = items.map(function (item, index) {
 
-      var cssClass = item.active
-        ? 'active'
-        : '';
-
       return (
-        <a href={item.route} key={index}>
-          <li className={cssClass}>{item.text}</li>
-        </a>
+        <Link to={item.route} key={index} activeClassName="active">
+          <li>{item.text}</li>
+        </Link>
       );
 
     });

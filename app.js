@@ -9,14 +9,20 @@ app.set('port', (process.env.PORT || 3000));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules')));
 
+app.get('*', function (request, response) {
+  response.sendFile(path.resolve(__dirname, 'public', 'index.html'))
+});
+
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
-app.use(function(req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Cache-Control', 'no-cache');
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Cache-Control', 'no-cache');
 
-    next();
+  next();
 });
 
 // app.get('/api/setlist', setlist.all);
@@ -24,6 +30,6 @@ app.use(function(req, res, next) {
 // app.post('/api/filterSetlist', setlist.byTags);
 
 
-app.listen(app.get('port'), function() {
+app.listen(app.get('port'), function () {
   console.log('Server up and running! http://localhost:' + app.get('port') + '/');
 });

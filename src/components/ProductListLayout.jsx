@@ -1,22 +1,20 @@
 var React = require('react');
 var Menu = require('./Menu.jsx');
-var Social = require('./Social.jsx');
-var FeaturedSale = require('./FeaturedSale.jsx');
+var ProductList = require('./ProductList.jsx');
 
-var Featured = React.createClass({
+var ProductListLayout = React.createClass({
   render: function () {
     return (
-      <div className="destaques">
+      <div className="lista-produtos">
         <div className="container">
           <div className="row">
 
             <div className="three columns">
               <Menu/>
-              <Social/>
             </div>
 
             <div className="nine columns">
-              <FeaturedSale/>
+              <ProductList/>
             </div>
 
           </div>
@@ -26,4 +24,4 @@ var Featured = React.createClass({
   }
 });
 
-module.exports = Featured;
+module.exports = ProductListLayout;
