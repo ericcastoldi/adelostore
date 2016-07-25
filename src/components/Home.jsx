@@ -1,6 +1,9 @@
 var React = require('react');
 var Featured = require('./Featured.jsx');
 var MainCategories = require('./MainCategories.jsx');
+var ReactRedux = require('react-redux');
+
+//var store = require('../state/store.js');
 
 var Home = React.createClass({
 
@@ -30,9 +33,15 @@ var Home = React.createClass({
     ];
   },
 
+  // propTypes: {
+  //   categories: React
+  //     .PropTypes
+  //     .arrayOf(React.PropTypes.shape({picture: React.PropTypes.string.isRequired, caption: React.PropTypes.string, title: React.PropTypes.string.isRequired, route: React.PropTypes.string.isRequired}))
+  //     .isRequired
+  // },
+
   render: function () {
     var categories = this.getCategories();
-
     return (
       <div>
         <Featured/>
@@ -41,5 +50,12 @@ var Home = React.createClass({
     );
   }
 });
+
+// const mapStateToProps = function(store) {
+//   return {
+//     categories: store.categories
+//   };
+// };
+
 
 module.exports = Home;

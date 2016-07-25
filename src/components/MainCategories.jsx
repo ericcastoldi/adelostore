@@ -10,34 +10,6 @@ var MainCategories = React.createClass({
       .isRequired
   },
 
-  getDefaultProps: function () {
-    return {
-      categories: [
-        {
-          picture: 'img/quadro-categorias-musica.jpg',
-          caption: 'Quadros de bandas e artistas da música',
-          title: 'Música',
-          route: '/categorias/musica'
-        }, {
-          picture: 'img/quadro-categorias-filmes.jpg',
-          caption: 'Quadros de filmes e séries',
-          title: 'Cinema',
-          route: '/categorias/cinema'
-        }, {
-          picture: 'img/quadro-categorias-outros.jpg',
-          caption: 'Quadros em geral',
-          title: 'Outros',
-          route: '/categorias/outros'
-        }, {
-          picture: 'img/quadro-categorias-promocao.png',
-          caption: 'Quadros em promoção',
-          title: 'Promoções',
-          route: '/categorias/promocoes'
-        }
-      ]
-    };
-  },
-
   renderCategories: function () {
 
     var categories = this.props.categories;
@@ -77,5 +49,6 @@ var MainCategories = React.createClass({
     );
   }
 });
+
 
 module.exports = MainCategories;
