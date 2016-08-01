@@ -95,6 +95,22 @@ gulp.task('bundle:js', function () {
     .pipe(gulp.dest('public'));
 });
 
+
+gulp.task('deploy', ['clean'], function (done) {
+  runSequence('copy-webapp', 'browserify', done);
+});
+
+gulp.task('browserify', function () {
+  return browserify({
+      entries: 'src/components/App.jsx',
+      debug: true,
+      transform: [babelify, envify]
+    })
+    .bundle()
+    .pipe(source('application.js'))
+    .pipe(gulp.dest('public'));
+});
+
 // Files to process
 //var TEST_FILES = 'test/**/*Spec.{jsx,js}';
 
