@@ -21,24 +21,32 @@ var Menu = React.createClass({
             route: '/'
           },
           {
+            text: 'Filmes',
+            route: '/categorias/filmes'
+          },
+          {
+            text: 'Séries',
+            route: '/categorias/series'
+          },
+          {
             text: 'Música',
             route: '/categorias/musica'
           },
           {
-            text: 'Cinema',
-            route: '/categorias/cinema'
+            text: 'Vintage',
+            route: '/categorias/vintage'
           },
           {
-            text: 'Outros',
-            route: '/categorias/outros'
+            text: 'Natureza',
+            route: '/categorias/natureza'
           },
           {
-            text: 'Promoções',
-            route: '/categorias/promocoes'
+            text: 'Personalidades',
+            route: '/categorias/personalidades'
           },
           {
-            text: 'Nossa caminhada',
-            route: '/sobre'
+            text: 'Diversos',
+            route: '/categorias/diversos'
           }
         ]
       };
@@ -48,7 +56,7 @@ var Menu = React.createClass({
     var renderedItems = this.renderItems();
 
     return (
-      <div className="menu">
+      <div className="menu-horizontal">
         <ul>
           { renderedItems }
         </ul>

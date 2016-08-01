@@ -1,8 +1,8 @@
 # Categorias
-- Vintage
-- Música
 - Filmes
 - Séries
-- Diversos
-- Universo
+- Música
+- Vintage
+- Natureza
 - Personalidades
+- Diversos

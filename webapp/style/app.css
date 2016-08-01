@@ -12,8 +12,7 @@ a:hover {
 }
 
 .topo {
-  height       : 120px;
-  border-bottom: 1px solid #666;
+  height: 120px;
 }
 
 .topo-logo {
@@ -47,11 +46,18 @@ a:hover {
   color           : white;
   display         : flex;
   align-items     : center;
-  padding-top     : 5rem;
+  padding-top     : 1.2rem;
+  text-align      : center;
 }
 
 .menu {
   line-height: 500px;
+}
+
+.menu-horizontal ul {
+  list-style    : none;
+  text-transform: uppercase;
+  width         : 100%;
 }
 
 .menu ul {
@@ -67,6 +73,13 @@ a:hover {
   text-decoration: none;
 }
 
+.menu-horizontal li {
+  line-height  : normal;
+  padding      : 1.5rem 2.5rem;
+  margin-bottom: 0;
+  display      : inline;
+}
+
 .menu li {
   border-top    : 1px white solid;
   padding-top   : 1.5rem;
@@ -74,13 +87,15 @@ a:hover {
   padding-left  : 1.5rem;
   margin-bottom : 0;
   padding-bottom: 1.5rem;
-
 }
-.menu a.active li {
+
+.menu a.active li,
+.menu-horizontal a.active li {
   background-color: rgba(255,225,0,0.5);
   color           : rgb(255, 238, 105);
 }
-.menu li:hover {
+.menu li:hover,
+.menu-horizontal li:hover {
   background-color: rgba(255, 255, 255, 0.35);
   color           : white;
 }
@@ -100,10 +115,6 @@ a:hover {
 .promocoes {
   text-align    : center;
   text-transform: uppercase;
-}
-
-.promocao-container {
-  float: left;
 }
 
 .promocao-imagem img {
@@ -179,8 +190,9 @@ a:hover {
 }
 
 .rodape {
-  padding-top   : 3rem;
-  padding-bottom: 3rem;
+  padding-top     : 3rem;
+  padding-bottom  : 3rem;
+  background-color: #dec328;
 }
 
 .icone-politicas {
@@ -214,6 +226,10 @@ a:hover {
   margin-top      : 2rem;
   margin-bottom   : 2rem;
 }
+.carousel-destaques {
+  height  : 20rem;
+  overflow: hidden;
+}
 
 .imagem-categoria {
   border  : #dec328 0.8rem solid;
@@ -221,6 +237,7 @@ a:hover {
   overflow: hidden;
 }
 
+.carousel-destaques img,
 .imagem-categoria img {
   width: 100%;
 }
