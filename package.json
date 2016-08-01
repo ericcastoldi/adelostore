@@ -6,7 +6,6 @@
   "scripts": {
     "test": "gulp test",
     "gogogo": "gulp & node app.js",
-    "scripts": {
     "start": "node app.js",
     "postinstall": "gulp default"
   },
