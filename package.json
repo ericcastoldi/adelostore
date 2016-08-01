@@ -5,7 +5,10 @@
   "main": "app.js",
   "scripts": {
     "test": "gulp test",
-    "gogogo": "gulp & node app.js"
+    "gogogo": "gulp & node app.js",
+    "scripts": {
+    "start": "node app.js",
+    "postinstall": "gulp default"
   },
   "repository": {
     "type": "git",
